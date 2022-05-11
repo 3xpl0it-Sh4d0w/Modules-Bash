@@ -19,7 +19,7 @@ module.colors
 
 if [[ "$COMMAND" = "-i" ]] || \
 [[ "$COMMAND" = "install" ]] || \
-[[ "$COMMAND" = "--install" ]]:
+[[ "$COMMAND" = "--install" ]];
   then
     mkdir ${DIR_INSTALL}
     cp modules.bash ${DIR_INSTALL}
@@ -28,5 +28,5 @@ fi
 
 if [[ ! "$COMMAND" ]];
   then
-    printf "${grey}[${none} ${red}ERREUR${none} ${grey}]${none} ${cyan}La commande ${1} n'existe pas !${none}\n"
+    printf "${grey}[${none} ${red}ERREUR${none} ${grey}]${none} ${cyan}La commande n'existe pas !${none}\n"
 fi
