@@ -26,7 +26,7 @@ if [[ "$COMMAND" = "-i" ]] || \
 fi
 
 if [[ "$COMMAND" = "-r" ]] || \
-[[ "$COMMAND" = "-uninstall" ]] \
+[[ "$COMMAND" = "uninstall" ]] \
 [[ "$COMMAND" = "--uninstall" ]];
   then
     rm -f ${DIR_INSTALL}
