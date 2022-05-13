@@ -3,7 +3,7 @@
 # MODULES - By : 3xpl0it sh4d0w - © All Rights Reserved : 2022 
 # ============================================================
 # DATE DE CRÉATION      :   11-05-2022 05:11
-# DATE DE MODIFICATION  :   12-05-2022 11:58
+# DATE DE MODIFICATION  :   13-05-2022 17:54
 # ============================================================
 
 DIR_MODULES="modules/"
@@ -16,23 +16,35 @@ module.colors
 
 COMMAND="$1"
 
-if [[ "$COMMAND" = "-i" ]] || \
-[[ "$COMMAND" = "install" ]] || \
-[[ "$COMMAND" = "--install" ]];
+if [[ ("$COMMAND" = "-h") ]] || \
+[[ ("$COMMAND" = "help") ]] || \
+[[ ("$COMMAND" = "--help") ]];
   then
-    mkdir ${DIR_INSTALL}
-    cp modules.bash ${DIR_INSTALL}
-    cp ${DIR_MODULES}color.bash ${DIR_INSTALL}
+    script.help
+fi 
+
+if [[ ("$COMMAND" = "-i") ]] || \
+[[ ("$COMMAND" = "install") ]] || \
+[[ ("$COMMAND" = "--install") ]];
+  then
+    script.install
 fi
 
-if [[ "$COMMAND" = "-r" ]] || \
-[[ "$COMMAND" = "uninstall" ]] || \
-[[ "$COMMAND" = "--uninstall" ]];
+if [[ ("$COMMAND" = "-r") ]] || \
+[[ ("$COMMAND" = "uninstall") ]] || \
+[[ ("$COMMAND" = "--uninstall") ]];
   then
-    rm -f ${DIR_INSTALL}
+    script.uninstall
 fi
 
-if [[ ! "$COMMAND" ]];
+if [[ ("$COMMAND" = "-u") ]] || \
+[[ ("$COMMAND" = "update") ]] || \
+[[ ("$COMMAND" = "--update") ]];
   then
-    printf "${grey}[${none} ${red}ERREUR${none} ${grey}]${none} ${cyan}La commande n'existe pas !${none}\n"
+    script.update
 fi
+
+if [[ ! $COMMAND ]]
+  then
+    script.help
+fi 
